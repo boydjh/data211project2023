@@ -1,0 +1,38 @@
+---
+title: "Data 211 Project"
+author: "Jarrell Boyd"
+date: "2023-11-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+library(tidyverse)
+library(readxl)
+library(Lahman)
+library(rvest)
+library(plotly)
+library(DT)
+library(tm)
+
+
+```
+
+$\p1:$Stay at home mom
+$\p2:$Officer worker
+$H_0: \p1 = p2$ vs $H_a: \p1 != p2$
+
+```{r}
+
+Project_Data_Set <- read_excel("C:/Users/boydj/OneDrive - MNSCU/Metro State/DATA211/Project/Project Data Set.xlsx")
+
+t.test(Steps~Person, data = Project_Data_Set, alternative = "two.sided")
+
+#At 5% significance level, our sample data is sufficient to conclude that there is a significant difference between the number of steps between person 1 and person 2 and can reject Ho
+
+```
+
